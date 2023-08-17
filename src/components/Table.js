@@ -1,3 +1,5 @@
+import React from "react";
+
 
 const Table = ({ sat }) => {
   return (
@@ -11,14 +13,16 @@ const Table = ({ sat }) => {
         </tr>
         </thead>
         <tbody>
-        <tr>
-          <td>{data.name}</td>
-          <td>{data.type}</td>
-          <td>{data.launchDate}</td>
-          <td>{data.orbitType}</td>
-        </tr>
-        </tbody>
-      </table>
+        {sat.map((data) => (
+          <tr key={data.id}>
+            <td>{data.name}</td>
+            <td>{data.type}</td>
+            <td>{data.launchDate}</td>
+            <td>{data.operational ? "Active" : "Inactive"}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
   );
 };
 
